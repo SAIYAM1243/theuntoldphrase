@@ -10,6 +10,9 @@ import {
 import Loading from "./components/Loading";
 import { Footer, Navbar } from "./components";
 import useStore from "./store";
+import About from "./pages/About";
+import Team from "./pages/Team";
+import Submission from "./pages/Submission";
 
 function Layout() {
   return (
@@ -37,6 +40,9 @@ function App() {
           <Route element={<Layout />}>
             <Route path='/' element={<Home />} />
             <Route path='/category' element={<CategoriesPage />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/submission' element={<Submission />} />
+            <Route path='/team' element={<Team />} />
             <Route path='/:slug/:id?' element={<BlogDetails />} />
             <Route path='/writer/:id' element={<WriterPage />} />
           </Route>

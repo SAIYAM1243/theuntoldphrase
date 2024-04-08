@@ -1,7 +1,9 @@
 import { app } from "./firebase";
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from "firebase/storage";
 
-export const API_URI = "http://localhost:8800";
+// export const API_URI = "http://localhost:8800";
+export const API_URI = "https://theuntoldphrase.onrender.com";
+
 
 export const uploadFile = (setFileURL, file) => {
     const storage = getStorage(app);

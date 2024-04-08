@@ -51,7 +51,7 @@ const CategoriesPage = () => {
         <br />
 
         {/* RIGHT */}
-        <div className='w-full md:w-1/4 flex flex-col gap-y-12'>
+        <div className='w-full md:w-1/4 mb-12 flex flex-col gap-y-12'>
           {/* POPULAR POSTS */}
           <PopularPosts posts={popular?.posts} />
 

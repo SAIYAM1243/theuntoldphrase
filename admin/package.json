@@ -16,6 +16,7 @@
     "@tiptap/extension-code-block-lowlight": "^2.1.12",
     "@tiptap/extension-color": "^2.1.12",
     "@tiptap/extension-highlight": "^2.1.12",
+    "@tiptap/extension-image": "^2.2.6",
     "@tiptap/extension-link": "^2.1.12",
     "@tiptap/extension-placeholder": "^2.1.12",
     "@tiptap/extension-subscript": "^2.1.12",
@@ -38,6 +39,7 @@
     "react-scripts": "5.0.1",
     "recharts": "^2.9.0",
     "sonner": "^1.0.3",
+    "tiptap-commands": "^1.17.1",
     "web-vitals": "^2.1.4",
     "zustand": "^4.4.4"
   },

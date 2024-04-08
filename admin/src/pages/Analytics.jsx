@@ -56,13 +56,13 @@ const Analytics = () => {
         <Graph dt={data?.viewStats} />
       </div>
 
-      <div className="w-full py-8 ">
+      {/* <div className="w-full py-8 ">
         <p className="py-5 text-base font-medium">
           Followers Stats for last {numOfDays} 
         </p>
 
         <Graph dt={data?.followersStats} />
-      </div>
+      </div> */}
 
 
       <Loading visible={isPending} />

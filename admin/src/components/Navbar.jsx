@@ -34,18 +34,20 @@ const MobileDrawer = ({ theme }) => {
         onClose={close}
         overlayProps={{ backgroundOpacity: 0.5, blur: 4 }}
       >
-        <Sidebar close={close} />
 
-        <div className='w-full mt-10'>
+        <div className='w-full ml-20 justify-center items-center mt-10'>
           <UserMenu user={user?.user} theme={theme} />
         </div>
 
-        <Button
+        <Sidebar close={close} />
+
+
+        {/* <Button
           onClick={open}
           className={theme ? "text-white" : "text-slate-800"}
         >
           <BiMenu className="text-xl" />
-        </Button>
+        </Button> */}
       </Drawer>
 
       <Button
@@ -135,10 +137,7 @@ const Navbar = () => {
 
   return (
     <div className='w-full fixed top-0 z-50 bg-transparent flex flex-row px-4 md:px-6 py-4 md:py-5 items-center justify-between gap-4 shadow'>
-      {user && (<div className='block lg:hidden'>
-        <MobileDrawer theme={theme} />
-      </div>)}
-      <div className='flex gap-2 text-[20px] md:hidden lg:flex'>
+      <div className=' gap-2 text-[20px] hidden lg:flex'>
         <Link to='/' className='text-red-600'>
           <FaYoutube />
         </Link>
@@ -150,8 +149,11 @@ const Navbar = () => {
         </Link>
       </div>
       <Logo />
+      {user && (<div className='block ml-8 mr-0 lg:hidden'>
+        <MobileDrawer theme={theme} />
+      </div>)}
       <div className='flex gap-14 items-center'>
-        <div className='flex gap-2 items-center '>
+        <div className=' gap-2 items-center hidden lg:flex '>
           {
             user?.token ? (<UserMenu user={user?.user} theme={theme} />) : (<Link to="/auth" onClick={handleLogin} className={clsx(
               "flex items-center gap-2 rounded-full 2xl:mr-10 text-base",

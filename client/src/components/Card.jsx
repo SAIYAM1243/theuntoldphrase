@@ -10,7 +10,7 @@ const Card = ({ post, index }) => {
       className={`w-full flex flex-col gap-8 items-center rounded 
      md:flex-row
         `}
-      //  ${index / 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}
+    //  ${index / 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}
     >
       <Link
         to={`/${post?.slug}/${post._id}`}
@@ -34,7 +34,9 @@ const Card = ({ post, index }) => {
         </div>
 
         <h6 className='text-xl 2xl:text-3xl font-semibold text-black dark:text-white'>
-          {post?.title}
+          <Link to={`/${post?.slug}/${post._id}`}>
+            {post?.title}
+          </Link>
         </h6>
 
         <div className='flex-1 overflow-hidden text-gray-600 dark:text-slate-500 text-sm text-justify'>

@@ -1,5 +1,7 @@
 import axios from 'axios';
-export const API_URI = 'http://localhost:8800';
+// export const API_URI = 'http://localhost:8800';
+export const API_URI = "https://theuntoldphrase.onrender.com";
+
 
 export const getGoogleSignUp = async (accessToken) => {
     try {
@@ -153,7 +155,7 @@ export const getWriterInfo = async (id) => {
 
         return data?.data;
     } catch (error) {
-        const err = erros?.response?.data || error?.response;
+        const err = error?.response?.data || error?.response;
 
         console.log(error);
 

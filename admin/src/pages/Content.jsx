@@ -104,7 +104,7 @@ const Contents = () => {
               <Table.Th>Post title</Table.Th>
               <Table.Th>Category</Table.Th>
               <Table.Th>Views</Table.Th>
-              <Table.Th>Comments</Table.Th>
+              {/* <Table.Th>Comments</Table.Th> */}
               <Table.Th>Post Date</Table.Th>
               <Table.Th>Status</Table.Th>
               <Table.Th>Action</Table.Th>
@@ -135,14 +135,14 @@ const Contents = () => {
                     </div>
                   </Table.Td>
 
-                  <Table.Td
+                  {/* <Table.Td
                     onClick={() => handleComment(el?._id, el?.comments?.length)}
                   >
                     <div className="flex gap-1  items-center cursor-pointer">
                       <MdMessage size={18} className="text-slate-500" />
                       {formatNumber(el?.comments?.length)}
                     </div>
-                  </Table.Td>
+                  </Table.Td> */}
 
                   <Table.Td>{moment(el?.createdAt).fromNow()}</Table.Td>
 

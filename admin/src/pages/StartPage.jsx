@@ -8,7 +8,7 @@ import useStore from "../store";
 import Navbar from '../components/Navbar';
 import LoginForm from '../components/LoginForm';
 import SignUpForm from '../components/SignUpForm';
-import Loading from "../components/Loading" 
+import Loading from "../components/Loading"
 import { clsx } from "clsx";
 
 const StartPage = () => {
@@ -22,7 +22,7 @@ const StartPage = () => {
     const [formClose, setFormClose] = useState(false);
 
     const { colorScheme } = useMantineColorScheme();
-    const theme = colorScheme === "light";
+    const theme = colorScheme === "dark";
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -55,6 +55,7 @@ const StartPage = () => {
                             theme ? "border-gray-700 text-gray-400" : "bg-gray-300 text-gray-600 ")}>
                         Unleash Your Words, and share with others{""}
                         <Link
+                            onClick={open}
                             className={clsx("flex gap-1 items-center font-semibold text-[18px]",
                                 theme ? "text-white" : "text-slate-700")}
                         >
@@ -86,12 +87,12 @@ const StartPage = () => {
                         >
                             Get Started
                         </Button>
-                        <Link to="" className={clsx(
+                        {/* <Link to="" className={clsx(
                             'flex gap-2 items-center font-semibold',
                             theme ? "text-white" : "text-gray-600")}>
                             Contact
                             <MdArrowForward />
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
             </div>

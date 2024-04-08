@@ -9,8 +9,12 @@ import {
 import { Link } from "react-router-dom";
 import useStore from "../store";
 import Button from "./Button";
+import { CATEGORIES } from "../utils/dummyData";
 import Logo from "./Logo";
 import ThemeSwitch from "./Switch";
+import logoLight from "./lightLogo.png";
+import darkLogo from "./darkLogo.png";
+import { Dropdown } from "flowbite-react";
 
 function getInitials(fullName) {
   const names = fullName.split(" ");
@@ -22,7 +26,7 @@ function getInitials(fullName) {
   return initialsStr;
 }
 
-const MobileMenu = ({ user, signOut }) => {
+const MobileMenu = ({ user, signOut, type }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -52,53 +56,97 @@ const MobileMenu = ({ user, signOut }) => {
       </button>
       {isMenuOpen && (
         <div className='fixed top-0 left-0 w-full h-fit bg-white dark:bg-[#020b19] z-50 flex flex-col py-10 items-center justify-center shadow-xl gap-8'>
-          <Logo />
-          {/* <ul className='flex flex-col gap-4 text-base text-black dark:text-gray-300'>
-            <li onClick={toggleMenu}>
-              <Link to='/'>Home</Link>
-            </li>
-            <li onClick={toggleMenu}>
-              <Link to='/'>Contact</Link>
-            </li>
-            <li onClick={toggleMenu}>
-              <Link to='/'>About</Link>
-            </li>
-          </ul> */}
-          <div className='flex gap-2 items-center'>
-            {user?.token ? (
-              <div className='w-full flex  flex-col items-center justify-center '>
-                <div className='flex gap-1 items-center mb-5'>
-                  {user?.user.image ? (
-                    <img
-                      src={user?.user.image}
-                      alt='Profile'
-                      className='w-8 h-8 rounded-full'
-                    />
-                  ) : (
-                    <span className='text-white w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center'>
-                      {getInitials(user?.user.name)}
-                    </span>
-                  )}
-                  <span className='font-medium text-black dark:text-gray-500'>
-                    {user?.user.name}
-                  </span>
-                </div>
+          <Link
+            to='/'
+            className={`text-2xl font-medium dark:text-white ${type && "text-white  text-4xl"
+              }`}
+          >
+            <span
+              className={` lg:text-4xl text-3xl font-bebas-neue flex flex-col w-full justify-between items-center ${type && " text-5xl font-bold"}`}
+            >
+              <img src={logoLight} className="dark:hidden" alt="logo" />
+              <img src={darkLogo} className="hidden dark:block" alt="logo" />
 
-                <button
-                  className='bg-black dark:bg-rose-600 text-white dark:text-white px-8 py-1.5 rounded-full text-center outline-none'
-                  onClick={() => signOut()}
+              <p className="text-black dark:text-white ">The&nbsp;
+                <span
+                  className={`lg:text-4xl text-rose-500 ${type && " text-5xl font-bold"}`}
                 >
-                  Logout
-                </button>
-              </div>
-            ) : (
-              <Link to='/signin'>
-                <Button
-                  label='Sign in'
-                  styles='flex items-center justify-center bg-black dark:bg-rose-600 text-white dark:text-white text-white px-4 py-1.5 rounded-full'
-                />
-              </Link>
-            )}
+                  Untold Phrase
+                </span>
+              </p>
+            </span>
+          </Link>
+          <ul className='flex gap-3 text-base text-black dark:text-white'>
+            <Link to='/'>Home</Link>
+            <Link to='/submission'>Submission</Link>
+            <Dropdown label="Categories" className="z-10" inline>
+              <Dropdown.Item>
+                <div className='flex flex-col gap-6'>
+                  {CATEGORIES.map((cat) => (
+                    <Link
+                      to={`/category?cat=${cat?.label}`}
+                      key={cat.label}
+                      className="flex flex-row gap-2"
+                    >
+                      {cat?.icon}
+                      <span>{cat.label}</span>
+                    </Link>
+                  ))}
+                </div>
+              </Dropdown.Item>
+            </Dropdown>
+            <Dropdown label="About" className="z-10" inline>
+              <Dropdown.Item>
+                <Link to="/about">
+                  About us
+                </Link>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <Link to="/team">
+                  Meet our Team
+                </Link>
+              </Dropdown.Item>
+            </Dropdown>
+            {/* <Link to='/writer'>About</Link> */}
+          </ul>
+          <div className="flex justify-between flex-row">
+            <ThemeSwitch />
+            <div className='flex gap-2 items-center mt-0 justify-center mb-0 ml-20'>
+              {user?.token ? (
+                <div className='w-full flex  flex-col items-center justify-center '>
+                  <div className='flex gap-1 items-center mb-5'>
+                    {user?.user.image ? (
+                      <img
+                        src={user?.user.image}
+                        alt='Profile'
+                        className='w-8 h-8 rounded-full'
+                      />
+                    ) : (
+                      <span className='text-white w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center'>
+                        {getInitials(user?.user.name)}
+                      </span>
+                    )}
+                    <span className='font-medium text-black dark:text-gray-500'>
+                      {user?.user.name}
+                    </span>
+                  </div>
+
+                  <button
+                    className='bg-black dark:bg-rose-600 text-white justify-center dark:text-white px-8 py-1.5 rounded-full text-center outline-none'
+                    onClick={() => signOut()}
+                  >
+                    Logout
+                  </button>
+                </div>
+              ) : (
+                <Link to='/signin'>
+                  <Button
+                    label='Sign in'
+                    styles='flex items-center justify-center bg-black dark:bg-rose-600 text-white dark:text-white text-white px-4 py-1.5 rounded-full'
+                  />
+                </Link>
+              )}
+            </div>
           </div>
           <span
             className='cursor-pointer text-xl font-semibold dark:text-white'
@@ -112,7 +160,7 @@ const MobileMenu = ({ user, signOut }) => {
   );
 };
 
-const Navbar = () => {
+const Navbar = ({ type }) => {
   const { user, signOut } = useStore();
   const [showProfile, setShowProfile] = useState(false);
 
@@ -120,12 +168,10 @@ const Navbar = () => {
     localStorage.removeItem("userInfo");
     signOut();
   };
-
-  console.log(user);
   return (
     <nav className='flex flex-col md:flex-row w-full py-5  items-center justify-between gap-4 md:gap-0'>
 
-      <div className='flex gap-2 text-[20px] md:hidden lg:flex'>
+      {/* <div className='flex gap-2 text-[20px] md:hidden lg:flex'>
         <Link to='https://www.youtube.com/@theuntoldphrase8660' target="_blank" className='text-red-600' rel="noopener noreferrer">
           <FaYoutube />
         </Link>
@@ -135,13 +181,66 @@ const Navbar = () => {
         <Link to='/' className='text-rose-600'>
           <FaInstagram />
         </Link>
+      </div> */}
+
+      <div className="flex justify-between">
+        <Link
+          to='/'
+          className={`text-2xl font-medium mr-8 dark:text-white ${type && "text-white  text-4xl"
+            }`}
+        >
+          <span
+            className={` lg:text-4xl text-3xl font-bebas-neue lg:ml-4 flex flex-row w-full justify-between items-center ${type && " text-5xl font-bold"}`}
+          >
+            <img src={logoLight} className="dark:hidden" alt="logo" />
+            <img src={darkLogo} className="hidden dark:block" alt="logo" />
+
+            <p className="text-black dark:text-white ">The&nbsp;
+              <span
+                className={`lg:text-4xl text-rose-500 ${type && " text-5xl font-bold"}`}
+              >
+                Untold Phrase
+              </span>
+            </p>
+          </span>
+        </Link>
+        <div className='block md:hidden ml-8'>
+          <MobileMenu user={user} signOut={handleSignOut} />
+        </div>
       </div>
 
-      <Logo />
-      <div className='hidden md:flex gap-14 items-center'>
-        <ul className='flex gap-8 text-base text-black dark:text-white'>
+      <div className='hidden md:flex gap-6 items-center'>
+        <ul className='flex gap-6 text-base text-black dark:text-white'>
           <Link to='/'>Home</Link>
-          <Link to='/category'>Categories</Link>
+          <Link to='/submission'>Submission</Link>
+          <Dropdown label="Categories" className="z-10" inline>
+            <Dropdown.Item>
+              <div className='flex flex-col gap-6'>
+                {CATEGORIES.map((cat) => (
+                  <Link
+                    to={`/category?cat=${cat?.label}`}
+                    key={cat.label}
+                    className="flex flex-row gap-2"
+                  >
+                    {cat?.icon}
+                    <span>{cat.label}</span>
+                  </Link>
+                ))}
+              </div>
+            </Dropdown.Item>
+          </Dropdown>
+          <Dropdown label="About" className="z-10" inline>
+            <Dropdown.Item>
+              <Link to="/about">
+                About us
+              </Link>
+            </Dropdown.Item>
+            <Dropdown.Item>
+              <Link to="/team">
+                Meet our Team
+              </Link>
+            </Dropdown.Item>
+          </Dropdown>
           {/* <Link to='/writer'>About</Link> */}
         </ul>
 
@@ -194,9 +293,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
-      <div className='block md:hidden'>
-        <MobileMenu user={user} signOut={handleSignOut} />
-      </div>
+
     </nav>
   );
 };

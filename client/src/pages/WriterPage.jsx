@@ -69,7 +69,7 @@ const WriterPage = () => {
           className='w-48 h-48 rounded-full border-4 border-slate-400 object-cover'
         />
         <div className='w-full h-full flex flex-col gap-y-5 md:gap-y-8  items-center justify-center'>
-          <h2 className='text-white text-5xl 2xl:text-6xl font-bold'>
+          <h2 className='text-white text-4xl lg:text-5xl 2xl:text-6xl font-bold'>
             {writer?.name}
           </h2>
 
@@ -132,7 +132,7 @@ const WriterPage = () => {
         </div>
 
         {/* RIGHT */}
-        <div className='w-full md:w-1/4 flex flex-col gap-y-12'>
+        <div className='w-full md:w-1/4 mb-12 flex flex-col gap-y-12'>
           {/* POPULAR POSTS */}
           <PopularPosts posts={popular?.posts} />
 

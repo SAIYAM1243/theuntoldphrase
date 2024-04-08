@@ -56,7 +56,9 @@ export function PasswordStrength({ value, setValue, setStrength, isSignin }) {
         />
     ));
 
-    const bars = Array.apply(4).fill(0).map((_, index) => (
+    const bars = Array.from({ length: 4 }, (_, index) => {
+        const barStrength = (index + 1) / 4;
+        const barValue = value.length > 0 && index === 0 ? 100 : strength >= barStrength * 100 ? 100 : 0;
         <Progress
             styles={{ section: { transitionDuration: "0ms" } }}
             value={value.length > 0 && index === 0 ? 100 : strength >= ((index + 1) / 4) * 100 ? 100 : 0}
@@ -64,7 +66,7 @@ export function PasswordStrength({ value, setValue, setStrength, isSignin }) {
             key={index}
             size={4}
         />
-    ));
+    });
 
     return (
         <div className="w-full">

@@ -22,6 +22,9 @@ import { createSlug } from './../utils/index';
 import { Button } from "@mantine/core";
 import { useCreatePost } from "../hooks/post-hook";
 import { clsx } from "clsx";
+import { Image } from "@tiptap/extension-image";
+import { chainCommands } from "tiptap-commands";
+
 
 const WritePost = () => {
 
@@ -52,6 +55,7 @@ const WritePost = () => {
       TextStyle,
       Color,
       TextAlign.configure({ types: ["headings", "paragraph"] }),
+      Image,
     ],
     content: "",
   });
@@ -103,9 +107,9 @@ const WritePost = () => {
           />
           <Select
             label="Category"
-            defaultValue={"NEWS"}
+            defaultValue={"POEMS"}
             placeholder="Pick Category"
-            data={["NEWS", "SPORTS", "CODING", "EDUCATION", "FASHION"]}
+            data={["POEMS", "OPEN LETTERS", "STORIES", "LIFE", "LOVE RELATIONSHIP"]}
             onChange={(val) => setCategory(val)}
           />
 
@@ -167,6 +171,19 @@ const WritePost = () => {
           </RichTextEditor.ControlsGroup>
 
           <RichTextEditor.UnsetColor />
+
+          <RichTextEditor.ControlsGroup>
+            <RichTextEditor.Control
+              onClick={() => {
+                const url = window.prompt('Enter the URL of the image:');
+                if (url) {
+                  editor.chain().focus().setImage({ src: url }).run();
+                }
+              }}
+            >
+              <BiImages />
+            </RichTextEditor.Control>
+          </RichTextEditor.ControlsGroup>
 
           <RichTextEditor.ControlsGroup>
 

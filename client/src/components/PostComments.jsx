@@ -16,7 +16,7 @@ const PostComments = ({ postId }) => {
     const res = await getPostComment(postId);
 
     setComments(res);
-  }
+  };
   const handleDeleteComment = async (id) => {
     const res = await deletePostComments(id, user?.token, postId);
 

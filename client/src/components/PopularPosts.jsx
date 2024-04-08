@@ -21,7 +21,7 @@ const PopularPosts = ({ posts }) => {
         />
         <div className='w-full flex flex-col gap-1'>
           <span
-            className={`${catColor} w-fit rounded-full px-2 py-0.5 text-white text-[12px] 2xl:text-sm`}
+            className={`w-fit rounded-full px-2 py-0.5 dark:text-white text-black text-[12px] 2xl:text-sm`}
           >
             {post?.cat}
           </span>

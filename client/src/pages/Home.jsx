@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import {
+  Button,
   Card,
   Pagination,
   PopularPosts,
@@ -9,16 +10,17 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { CATEGORIES } from "../utils/dummyData";
 import 'swiper/css';
 import 'swiper/css/effect-cards';
+import { GrPrevious, GrNext } from "react-icons/gr";
 import { Autoplay, EffectCards } from 'swiper/modules';
-
 import './style.css';
-
-import books from '../assets/books.jpg';
 import library from '../assets/library.jpg';
 import { Banner } from "../components";
 import work from '../assets/work.jpg';
 import { usePopularPosts, usePosts } from "../hooks/post-hook";
-import {CCarousel ,CCarouselItem, CImage} from '@coreui/react'
+import { CCarousel, CCarouselItem, CImage } from '@coreui/react'
+import Slider from "../components/Slider";
+import StatCounter from "../components/StatCounter";
+import SliderMobile from "../components/SliderMobile";
 
 const Home = () => {
   const { posts, numOfPages, setPage } = usePosts({ writerId: "" });
@@ -36,10 +38,12 @@ const Home = () => {
       </div>
     );
 
+
+
   return (
     <div className='py-10 2xl:py-5'>
 
-      <Banner post={posts[randomIndex]} />
+      {/* <Banner post={posts[randomIndex]} /> */}
 
       {/* <CCarousel controls transition="crossfade">
         <CCarouselItem>
@@ -75,15 +79,68 @@ const Home = () => {
 
       </Swiper > */}
 
-      <br /><br /><br /><br /><br /><br />
+      {/* <div className="m-0 p-0 box-border">
+        <div className="container">
+          <div className="slide">
+            <div className="item bg-[url('https://plus.unsplash.com/premium_photo-1669324357471-e33e71e3f3d8?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')]">
+              <div className="content">
+                <div className="name">
+                  THE UNTOLD PHRASE
+                </div>
+                <div className="desc">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, doloremque.
+                </div>
+                <Link>Read more.</Link>
+              </div>
+            </div>
+            <div className="item bg-[url('https://images.unsplash.com/photo-1617854818583-09e7f077a156?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')]">
+              <div className="content">
+                <div className="name">
+                  THE UNTOLD PHRASE
+                </div>
+                <div className="desc">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, doloremque.
+                </div>
+                <Link>Read more.</Link>
+              </div>
+            </div>
+            <div className="item bg-[url('https://images.unsplash.com/photo-1624555130581-1d9cca783bc0?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')]">
+              <div className="content">
+                <div className="name">
+                  THE UNTOLD PHRASE
+                </div>
+                <div className="desc">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, doloremque.
+                </div>
+                <Link>Read more.</Link>
+              </div>
+            </div>
+          </div>
+          <div className="button">
+            <Button className="prev"><GrPrevious /></Button>
+            <Button className="next"><GrNext /></Button>
 
-      <div className='px-0 lg:pl-20 2xl:px-20 '>
+          </div>
+        </div>
+      </div> */}
+
+      <div className="hidden lg:block">
+        <Slider posts={posts} />
+      </div>
+      <div className="lg:hidden">
+        <SliderMobile />
+      </div>
+      <StatCounter />
+
+      <br /><br /><br />
+
+      <div className='px-0 lg:pl-20 2xl:px-20 catehome'>
         {/* Categories */}
         <div className='mt-6 md:mt-0'>
           <p className='text-2xl font-semibold text-gray-600 dark:text-white'>
             Popular Categories
           </p>
-          <div className='w-full flex flex-wrap py-10 gap-8'>
+          <div className='w-full flex flex-wrap py-10 md:gap-8 gap-4'>
             {CATEGORIES.map((cat) => (
               <Link
                 to={`/category?cat=${cat?.label}`}

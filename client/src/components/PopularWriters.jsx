@@ -24,10 +24,10 @@ const PopularWriters = ({ data }) => {
             <span className='text-base font-semibold text-slate-800 dark:text-slate-500'>
               {el?.name}
             </span>
-            <span className='text-rose-800 font-medium'>
+            {/* <span className='text-rose-800 font-medium'>
               {formatNumber(el?.followers)}{" "}
               <span className='text-gray-600'>Followers</span>
-            </span>
+            </span> */}
           </div>
         </Link>
       ))}

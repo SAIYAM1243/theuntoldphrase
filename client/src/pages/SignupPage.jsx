@@ -10,8 +10,10 @@ import { getGoogleSignUp, emailSignUp } from '../utils/apiCalls'
 import useStore from "../store";
 import { saveUserInfo } from "../utils";
 import { uploadFile } from "../utils/index";
+import logoLight from "../components/lightLogo.png";
+import darkLogo from "../components/darkLogo.png";
 
-const SignupPage = () => {
+const SignupPage = ({ type }) => {
   const { user, signIn, setIsLoading } = useStore();
   const [showForm, setShowForm] = useState(false);
   const [data, setData] = useState({
@@ -86,8 +88,27 @@ const SignupPage = () => {
       {/* RIGHT */}
       <div className='flex w-full md:w-2/3 h-full bg-white dark:bg-gradient-to-b md:dark:bg-gradient-to-r from-black via-[#071b3e] to-black items-center px-4 md:px-20 lg:px-40'>
         <div className='w-full h-full flex flex-col items-center justify-center py-12 px-4 sm:px-0 lg:px-8'>
-          <div className='block mb-10 md:hidden -ml-8'>
-            <Logo />
+          <div className='block mb-10 md:hidden '>
+            <Link
+              to='/'
+              className={`text-2xl font-medium mr-8 dark:text-white ${type && "text-white  text-4xl"
+                }`}
+            >
+              <span
+                className={` lg:text-4xl text-3xl font-bebas-neue lg:ml-4 flex flex-row w-full justify-between items-center ${type && " text-5xl font-bold"}`}
+              >
+                <img src={logoLight} className="dark:hidden" alt="logo" />
+                <img src={darkLogo} className="hidden dark:block" alt="logo" />
+
+                <p className="text-black dark:text-white ">The&nbsp;
+                  <span
+                    className={`lg:text-4xl text-rose-500 ${type && " text-5xl font-bold"}`}
+                  >
+                    Untold Phrase
+                  </span>
+                </p>
+              </span>
+            </Link>
           </div>
 
           <div className='w-full space-y-6 flex flex-col justify-start'>

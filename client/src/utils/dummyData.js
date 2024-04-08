@@ -1,6 +1,7 @@
-import { MdCastForEducation, MdOutlineSportsHandball } from "react-icons/md";
+import { MdCastForEducation, MdOutlineSportsHandball, MdOutlineAutoStories } from "react-icons/md";
 import { BsCodeSlash, BsNewspaper } from "react-icons/bs";
-import { GiClothes } from "react-icons/gi";
+import { GiClothes, GiLifeSupport } from "react-icons/gi";
+import { TbListLetters, TbCirclesRelation } from "react-icons/tb";
 
 export const posts = [
   {
@@ -110,7 +111,7 @@ export const posts = [
     _id: "655b21192255c0b35d4ab60b",
     title: "THE UNTOLDPHRASE",
     slug: "markdown-to-jsx-v6-is-now-available",
-    desc:'<p>“The Untold Phrase” is a platform for budding writers to showcase their original work and get exposure.We appreciate real talents in every possible way.Here people can find wonderful writings be it micro tales, poetries or stories.</p>',
+    desc: '<p>“The Untold Phrase” is a platform for budding writers to showcase their original work and get exposure.We appreciate real talents in every possible way.Here people can find wonderful writings be it micro tales, poetries or stories.</p>',
 
     // desc: '<p>Hello coders, welcome to another episode of React project. In this project, we will build and deploy a fully responsive FullStack or MERN Stack Social Media application using MongoDB, ExpressJs, Reactjs, NodeJs, and tailwind css for styling our UI.</p><p style="text-align: start"></p><p style="text-align: start"></p><h1><strong><span style="color: #F03E3E">FULLY </span>RESPONSIVE APP</strong></h1><p></p><p style="text-align: start"></p><p style="text-align: start"></p><h1><strong>Getting Started with Create React App</strong></h1><p></p><p style="text-align: start"></p><p style="text-align: start">This project was bootstrapped with <a target="_blank" rel="noopener noreferrer nofollow" href="https://github.com/facebook/create-react-app"><span style="color: rgb(206, 145, 120)">Create React App</span></a>.</p><p style="text-align: start"></p><p style="text-align: start"></p><h2><strong>Available Scripts</strong></h2><p></p><p style="text-align: start"></p><p style="text-align: start">In the project directory, you can run:</p><p style="text-align: start"></p><p style="text-align: start"></p><h3></h3><p><code>npm start</code></p><p></p><p style="text-align: start"></p><p style="text-align: start">Runs the app in the development mode.</p><p style="text-align: start">Open <a target="_blank" rel="noopener noreferrer nofollow" href="https://github.com/facebook/create-react-app">http://localhost:3000</a> to view it in your browser.</p><p style="text-align: start"></p><p style="text-align: start">The page will reload when you make changes.</p><p style="text-align: start">You may also see any lint errors in the console.</p><p style="text-align: start"></p><p style="text-align: start"></p><h3></h3><p><code>npm test</code></p><p></p><p style="text-align: start"></p><p style="text-align: start">Launches the test runner in the interactive watch mode.</p><p style="text-align: start">See the section about <a target="_blank" rel="noopener noreferrer nofollow" href="https://facebook.github.io/create-react-app/docs/running-tests"><span style="color: rgb(206, 145, 120)">running tests</span></a> for more information.</p>',
     img: "https://www.theuntoldphrase.com/wp-content/uploads/2022/09/Who-I-am-when.png",
@@ -157,7 +158,7 @@ export const posts = [
     _id: "655ad816d148ee58ab8d58a1",
     title: "THE UNTOLDPHRASE",
     slug: "markdown-to-jsx-v6-is-now-available",
-    desc:'<p>“The Untold Phrase” is a platform for budding writers to showcase their original work and get exposure.We appreciate real talents in every possible way.Here people can find wonderful writings be it micro tales, poetries or stories.</p>',
+    desc: '<p>“The Untold Phrase” is a platform for budding writers to showcase their original work and get exposure.We appreciate real talents in every possible way.Here people can find wonderful writings be it micro tales, poetries or stories.</p>',
 
     // desc: '<p>Full-Stack Social Media Application using ReactJs, Tailwind CSS for the front end and NodeJs, ExpressJs and MongoDb for backend.</p><p style="text-align: start">This App is fully responsive. This project includes for frontend (UI Design) and Backend (Server).</p><p style="text-align: start"></p><p style="text-align: start"></p><h1><strong>Functionalities:</strong></h1><p></p><p style="text-align: start"><span style="color: rgb(103, 150, 230)">1.</span> User Authentication and Authorisation</p><p style="text-align: start"><span style="color: rgb(103, 150, 230)">2.</span> Email Verification</p><p style="text-align: start"><span style="color: rgb(103, 150, 230)">3.</span> Password reset</p><p style="text-align: start"><span style="color: rgb(103, 150, 230)">4.</span> Create Post</p><p style="text-align: start"><span style="color: rgb(103, 150, 230)">5.</span> Advance Comment system (comments with sub coments)</p><p style="text-align: start"><span style="color: rgb(103, 150, 230)">6.</span> Like post and comments</p><p style="text-align: start"><span style="color: rgb(103, 150, 230)">7.</span> Delete post</p><p style="text-align: start"><span style="color: rgb(103, 150, 230)">8.</span> Friend Request (send request, accept or deby)</p><p style="text-align: start">and others.....</p><p style="text-align: start"></p><p style="text-align: start"></p><p style="text-align: start"></p><h1><strong>Getting Started</strong></h1><p></p><p style="text-align: start"></p><p style="text-align: start"></p><h1><strong>SERVER OR BACKEND</strong></h1><p></p><p style="text-align: start">Firstly move to the server directory eg: cd server</p><p style="text-align: start"></p><p style="text-align: start"><span style="color: rgb(103, 150, 230)">1.</span> Create a <code>.env</code> file</p><p style="text-align: start">&nbsp;&nbsp;The .env file will contain the following:</p><p style="text-align: start">&nbsp;&nbsp;i. MONGODB_URL = <code>database connection string</code></p><p style="text-align: start">&nbsp;&nbsp;ii. JWT_SECRET_KEY = <code>your secreate key</code></p><p style="text-align: start">&nbsp;&nbsp;iii. PORT = <code>8800</code></p><p style="text-align: start">&nbsp;&nbsp;iv. AUTH_EMAIL= <code>email address</code></p><p style="text-align: start">&nbsp;&nbsp;v. AUTH_PASSWORD= <code>email access password</code></p><p style="text-align: start">&nbsp;&nbsp;vi. APP_URL = <code>http://localhost:8800</code></p><p style="text-align: start"></p><p style="text-align: start">&nbsp;&nbsp;Note: I used hotmail account to send verification email, so you can just create one because hotmail account is reliable in product and has no configuration.</p><p style="text-align: start"></p><p style="text-align: start">&nbsp;&nbsp;Alos, change <code>API_URL</code> when you deploy your app else use localhost with the appropriate <code>port number</code></p><p style="text-align: start"></p><p style="text-align: start"><span style="color: rgb(103, 150, 230)">2.</span> Run <code>npm install</code> to install the packages</p><p style="text-align: start"><span style="color: rgb(103, 150, 230)">3.</span> Run <code>npm start</code> to start the server</p><p style="text-align: start"></p><p style="text-align: start"></p><h1><strong>VIEWS FILE</strong></h1><p></p><p style="text-align: start">In the view are the static html files to be use for <code>email verfication</code> and <code>password reset</code>.</p><p style="text-align: start"></p><p style="text-align: start"><span style="color: rgb(103, 150, 230)">1.</span> This folder is a React App</p><p style="text-align: start"><span style="color: rgb(103, 150, 230)">2.</span> navigate in the folder and install it dependencies</p><p style="text-align: start"><span style="color: rgb(103, 150, 230)">3.</span> make changes to suit your preference and run build</p><p style="text-align: start"><span style="color: rgb(103, 150, 230)">4.</span> copy the build folder into the view folder in the server folder</p><p style="text-align: start"></p><p style="text-align: start"><strong>Override the existing one.</strong></p><p style="text-align: start">NOTE: During deployment make sure you change the various links in the view file and build it again and replace the files in the view folder of the server folder.</p><p style="text-align: start"></p><p style="text-align: start"></p><p style="text-align: start"></p><h1><strong>CLINET SIDE</strong></h1><p></p><p style="text-align: start"></p><p style="text-align: start">The client or frontend also has .env filde in the root folder.</p><p style="text-align: start">Create an environment variable of name <code>REACT_APP_CLOUDINARY_ID</code>.</p><p style="text-align: start">This will store the cloudinary cloud name</p><p style="text-align: start"></p><p style="text-align: start">This side also has and env file with <code>REACT_APP_CLOUDINARY_ID</code></p>',
     img: "https://www.theuntoldphrase.com/wp-content/uploads/2022/09/Who-I-am-when.png",
@@ -214,30 +215,30 @@ export const posts = [
 
 export const CATEGORIES = [
   {
-    label: "NEWS",
-    color: "bg-[#e11d48]",
+    label: "POEMS",
+    color: "bg-[#9333ea]",
     text: "text-[#fff]",
     icon: <BsNewspaper />,
   },
   {
-    label: "SPORTS",
+    label: "OPEN LETTERS",
     color: "bg-[#2563eb]",
-    icon: <MdOutlineSportsHandball />,
+    icon: <TbListLetters />,
   },
   {
-    label: "CODING",
+    label: "STORIES",
     color: "bg-[#000000]",
-    icon: <BsCodeSlash />,
+    icon: <MdOutlineAutoStories />,
   },
   {
-    label: "EDUCATION",
+    label: "LIFE",
     color: "bg-[#ca8a04]",
-    icon: <MdCastForEducation />,
+    icon: <GiLifeSupport />,
   },
   {
-    label: "FASHION",
-    color: "bg-[#9333ea]",
-    icon: <GiClothes />,
+    label: "LOVE REPLATIONSHIP",
+    color: "bg-[#e11d48]",
+    icon: <TbCirclesRelation />,
   },
 ];
 
